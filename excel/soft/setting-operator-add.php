@@ -61,7 +61,7 @@ if(isset($_GET['unban']))
 
 <body>
 
-<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 
     <tr>
 
@@ -71,13 +71,12 @@ if(isset($_GET['unban']))
 
     <tr>
 
+     <td width="250px" valign="top" class="left"><?php include("adleft.php");?></td>
 
-
-        <td width="750" colspan="2" align="center" valign="top">
-
+     <td    align="center" valign="top" class="bgs">
             <div id="mid">
                 <form name="frm_main" id="frm_main" method="post" action="" enctype="multipart/form-data">
-                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#274663" class="table table-hover table-bordered">
+                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#274663" class="table table-hover table-bordered">
 
                     <tr>
 
@@ -104,12 +103,12 @@ if(isset($_GET['unban']))
                                     <td ><div align="center">:</div></td>
                                     <td > <span id="statediv2"> <input type="text" value="<?php if(isset($_GET['edit'] )) echo  stripslashes($row['name']); ?>" required name="name" /></span></td>
                                 </tr>
-                                <tr>
+                             <!--   <tr>
                                     <td  ><div align="left">Branch</div></td>
                                     <td  ><div align="center">:</div></td>
                                     <td  >   <select   name="br_code"   required > <option value="">Select Branch</option>
-                                            <?php $sqlw=  mysqli_query($DB_LINK,"select * from tbl_branch  order by title") or die(mysqli_error()); while($cat=mysqli_fetch_array($sqlw)) { ?> <option <?php if(isset($_GET['edit'] )) { if($cat['br_code']==$row['br_code']) echo 'selected'; }?> value="<?php echo $cat['br_code'];?>"><?php echo ucwords(strtolower($cat['title']));?></option> <?php } ?> </select></td>
-                                </tr>
+                                            <?php /*$sqlw=  mysqli_query($DB_LINK,"select * from tbl_branch  order by title") or die(mysqli_error()); while($cat=mysqli_fetch_array($sqlw)) { */?> <option <?php /*if(isset($_GET['edit'] )) { if($cat['br_code']==$row['br_code']) echo 'selected'; }*/?> value="<?php /*echo $cat['br_code'];*/?>"><?php /*echo ucwords(strtolower($cat['title']));*/?></option> <?php /*} */?> </select></td>
+                                </tr>-->
                                 <tr>
  <td colspan="3"> <input name="go" type="submit"   id="go" value=" Add member" /> </td>
                                 </tr>

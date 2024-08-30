@@ -31,28 +31,8 @@ if (isset($_POST['finder'])) {
     <title><?php echo $ADMIN_HTML_TITLE; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <link href="css/admin_style.css" rel="stylesheet" type="text/css"/>
-    <style type="text/css">
-        .td-top {
-            padding: 5px !important;
-            background-color: #ededed;
-            color: #000000;
-            text-align: center;
-        }
 
-        .td-pad {
-            padding: 3px !important;
-            background-color: #eded17;
-            color: #0a53be;
-            text-align: center;
-        }
 
-        .td-pad-2 {
-            padding: 3px !important;
-            background-color: #0a53be;
-            color: #eded17;
-            text-align: center;
-        }
-    </style>
     <?php require_once("top.php"); ?>
 
 </head>
@@ -62,7 +42,9 @@ if (isset($_POST['finder'])) {
         <td colspan="2"><?php require_once("adheader.php"); ?></td>
     </tr>
     <tr>
-          <td   >
+     <td width="250px" valign="top" class="left"><?php include("adleft.php");?></td>
+
+     <td    align="center" valign="top" class="bgs">
             <div id="mid">
                 <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#274663">
                     <tr>
@@ -72,38 +54,55 @@ if (isset($_POST['finder'])) {
                                        bgcolor="#f0becf">
                                     <tr>
                                         <td height="252" bgcolor="#FFFFFF" >
-                                            <div class="correct" align="center"><h3>Excel Data Answer List <?php /*if (isset($_GET['answer'])) {
+                                            <div class="correct" align="center"><h3>220 CODE List <?php /*if (isset
+ ($_GET['answer'])) {
 echo dec($_GET['answer']);
 } */ ?></h3></div>
-                                            <hr>
+                                        <!--    <hr>
                                             <table>
                                                 <tr>
                                                      <td   style="text-align: center;"><label  style="font-size: 25px;">Enter Answer : </label></td>
-                                                    <td width="190px"><input style="width: 170px;" name="ans" type="number" value="<?php if (isset($_POST['finder'])) echo  $_POST['ans']; ?>" required></td>
+                                                    <td width="190px"><input style="width: 170px;" name="ans" type="number" value="<?php /*if (isset($_POST['finder'])) echo  $_POST['ans']; */?>" required></td>
 
                                                     <td width="190px"><input type="submit" name="finder" value="Save answer"></td>
                                                 </tr>
-                                            </table>
-                                            <hr>
+                                            </table>-->
+                                         <table style="font-size: 25px;">
+                                          <tr>
+                                           <td><label  >Filter : </label></td>
+                                           <td><input style="width: 85px;"  type="number" id="txt_filter"> </td>
+                                           <td><input type="button" name="finder" onclick="highlightDivByText(txt_filter.value)" value="Click">  </td>
+                                           <td><input type="button" name="reset" onclick="resetStyle()"
+                                                   value="reset filter"></td>
+                                          </tr>
+                                         </table>
 
-    <table style="width:260px !important;" style="border-color: #9c0d0d">
-    <tr>
-    <td class="td-top">#</td>
-    <td class="td-top">Number</td>
-    </tr>
+
+
+
+                                            <hr>
+                                         <div class="grid-container">
+
+
+
+
+
     <?php
     $coun=0;
-    $qry=mysqli_query($DB_LINK,"select * from calc_ans order by id desc");
+    $qry=mysqli_query($DB_LINK,"select * from calc_ans order by code asc");
     while ($row = mysqli_fetch_array($qry)) {
     $coun++;
     ?>
 
-    <tr>
-    <td><?php echo $coun; ?></td>
-    <td class="td-pad"><?php echo $row['ans']; ?></td>
-    </tr>
+     <div class="grid-item">
+      <div  class=" random-bg " >
+       <?php echo $row['code']; ?>
+      </div>
+     </div>
+
+
                     <?php } ?>
-                                            </table>
+                                         </div>
 
                                         </td>
                                     </tr>
@@ -121,3 +120,35 @@ echo dec($_GET['answer']);
 </table>
 </body>
 </html>
+<script type="text/javascript">
+ function highlightDivByText(text) {
+  // Get all divs with class 'box'
+  const divs = document.querySelectorAll('.random-bg');
+
+  // Loop through each div
+  divs.forEach(div => {
+   // Check if the div's inner HTML matches the text
+   if (div.innerHTML.includes(text)) {
+    // Add 'highlight' class to matching div
+
+    div.classList.remove('random-bg');
+    div.classList.add('highlight');
+   }
+  });
+ }
+ function resetStyle() {
+  // Get all divs with class 'box'
+  const divs = document.querySelectorAll('.highlight');
+
+  // Loop through each div
+  divs.forEach(div => {
+   // Check if the div's inner HTML matches the text
+
+   // Add 'highlight' class to matching div
+   div.classList.remove('highlight');
+   div.classList.add('random-bg');
+
+
+  });
+ }
+</script>

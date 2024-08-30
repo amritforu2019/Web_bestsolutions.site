@@ -43,7 +43,7 @@ validate_admin();
 
 </head>
 <body>
-<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td colspan="2"><?php require_once("adheader.php"); ?></td>
     </tr>

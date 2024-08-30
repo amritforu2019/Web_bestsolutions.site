@@ -38,7 +38,7 @@ validate_admin(); ?>
 
 <body>
 
-<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 
   <tr>
 
@@ -48,9 +48,9 @@ validate_admin(); ?>
 
   <tr>
 
-    <td width="150" valign="top" class="left"><?php include("adleft.php");?></td>
+    <td width="250px" valign="top" class="left"><?php include("adleft.php");?></td>
 
-    <td width="450px"  align="center" valign="top" class="bgs">
+    <td    align="center" valign="top" class="bgs">
 
     <div id="mid" >
 

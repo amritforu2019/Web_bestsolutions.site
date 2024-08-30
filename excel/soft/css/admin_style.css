@@ -1,10 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
 body {
 	margin:0; padding:0; 
 	color:#000;
-    font-family: "Platypi", serif !important;
-    font-weight: 800;
-font-optical-sizing: auto;
-    font-style: normal;
+    font-family: "Changa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+
+
 	font-size: 16px;
 }
   td
@@ -116,10 +121,11 @@ input[type=text] {
   margin: 2px 0;
   box-sizing: border-box;
   font-size:17px;
-    font-family:  "Platypi", serif !important;
-  font-weight: 800;
-font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
   
 }
 
@@ -129,10 +135,10 @@ input[type=password] {
     margin: 2px 0;
     box-sizing: border-box;
     font-size:17px;
-    font-family:  "Platypi", serif !important;
-  font-weight: 800;
-font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 
 }
 
@@ -142,10 +148,10 @@ input[type=number] {
     margin: 2px 0;
     box-sizing: border-box;
     font-size:17px;
-    font-family:  "Platypi", serif !important;
-  font-weight: 800;
-font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 
 }
 
@@ -169,10 +175,10 @@ select {
   box-sizing: border-box;
   font-size:17px;
   margin: 2px 0;
-    font-family:  "Platypi", serif !important;
-  font-weight: 800;
-font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 } 
 select:focus {
   background-color: lightblue;
@@ -188,10 +194,10 @@ textarea {
   resize: none;
   font-size:17px;
   margin: 2px 0;
-    font-family:  "Platypi", serif !important;
-  font-weight: 800;
-font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 textarea:focus {
   background-color: lightblue;
@@ -213,9 +219,10 @@ input[type=submit] {
   border: 2px solid #008CBA;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-    font-family:  "Platypi", serif !important  ;
-  font-weight: 800;font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 
   
 }
@@ -242,6 +249,11 @@ input[type=button] {
   border: 2px solid #008CBA;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   
 }
 
@@ -270,4 +282,100 @@ input[type=button]:hover {
     height: 1px;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+.td-top {
+    padding: 5px ! important;
+    background-color: #ededed;
+    color: #000000;
+    text-align: center;
+}
+
+.td-pad {
+    padding: 3px !important;
+    background-color: #eded17;
+    color: #0a53be;
+    text-align: center;
+}
+
+.td-pad-2 {
+    padding: 3px !important;
+    background-color: #0a53be;
+    color: #eded17;
+    text-align: center;
+}
+
+.td-pad-3 {
+    padding: 3px !important;
+    background-color: #0a53be;
+    color: #76c100;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* Define keyframes to simulate randomness */
+@keyframes randomBackground {
+    0%   { background-color: rgba(255, 106, 106, 0.77); }
+    25%  { background-color: rgba(85, 85, 255, 0.79); }
+    50%  { background-color: rgba(2, 255, 2, 0.72); }
+    75%  { background-color: rgb(75, 255, 249); }
+    100% { background-color: rgba(255, 2, 255, 0.66); }
+}
+
+/* Apply animation to element */
+.random-bg {
+
+    width: 80px;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    text-align: center;
+    border-color: #ff02ff;
+    border: 1px solid;
+    padding: 5px;
+
+    animation: randomBackground 100s infinite;
+}
+
+.highlight {
+    background-color: yellow;
+    border-color: #ff0;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 3 equal columns */
+    gap: 10px; /* Space between cells */
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+
+.grid-item:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.grid-item:hover {
+    background-color: #d0d0d0;
 }

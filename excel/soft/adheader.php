@@ -6,10 +6,6 @@
 <!--<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">-->
 <!--<link href="https://fonts.googleapis.com/css2?family=Gupter:wght@700&display=swap" rel="stylesheet">
 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
@@ -57,7 +53,7 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,
 
 </table>
 
-
+<!--
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-<script src="https://kit.fontawesome.com/dd6ea8e544.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/dd6ea8e544.js" crossorigin="anonymous"></script>-->

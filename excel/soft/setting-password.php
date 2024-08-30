@@ -73,7 +73,7 @@ if(isset($_POST['go']))
 
 <body>
 
-<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 
     <tr>
 
@@ -84,12 +84,12 @@ if(isset($_POST['go']))
     <tr>
 
 
+     <td width="250px" valign="top" class="left"><?php include("adleft.php");?></td>
 
-        <td width="750" colspan="2" align="center" valign="top">
-
+     <td    align="center" valign="top" class="bgs">
             <div id="mid">
 
-                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#274663" class="table table-hover table-bordered">
+                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#274663" class="table table-hover table-bordered">
 
                 <tr>
 
