@@ -5,9 +5,9 @@
     <li><a href="setting-operator.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;Manage Operator</a></li>
      <li><a href="logout.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;Logout</a></li>
     <h1>Excel Sheet</h1>
-    <li><a href="ex-all.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;All Excel Sheet</a></li>
-    <li><a href="ex-finder-backup.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;Find Answer</a></li>
-    <li><a href="ex-finder.php"><i class="fa-solid fa-angles-right fa-fade"></i> Find Answer (OLD)</a></li>
-    <li><a href="ex-answer.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Codes</a></li>
+    <li><a target="_blank" href="ex-all.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;All Excel Sheet</a></li>
+    <li><a target="_blank" href="ex-finder-backup.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;Find Answer</a></li>
+    <li><a target="_blank" href="ex-finder.php"><i class="fa-solid fa-angles-right fa-fade"></i> Find Answer (OLD)</a></li>
+    <li><a target="_blank" href="ex-answer.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Codes</a></li>
     <?php  if($_SESSION['sess_admin_id']=='amritforu')  {  ?><?php   } ?>
 </ul>

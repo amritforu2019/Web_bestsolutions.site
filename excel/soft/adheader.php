@@ -20,7 +20,7 @@
 
             style="border-bottom:solid 5px #da251a;  background: rgb(131,58,180);
 background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);  font-size: 30px; text-transform:uppercase;">
-            <a href="admin_home.php">
+            <a target="_blank" href="admin_home.php">
                 <img src="images/logo2.png" hspace="10"   vspace="10" align="absmiddle" height="130" />
             </a></td>
 
