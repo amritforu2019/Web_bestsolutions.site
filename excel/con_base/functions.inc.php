@@ -1204,4 +1204,126 @@ function get_validate_otp($id,$otp)
             return 0;
 }
 
+
+
+//////////////////////////////////////Function Area//////////////////////////////////
+
+function splitter_data($val)
+{
+ //echo $val.'<br>';
+ if (strlen($val) < 10) {
+
+  if (strlen($val) > 6) {
+   $ary = str_split($val, 3);
+   $ary1 = str_split($val, 3);
+   $ary1_sub = str_split($ary1[1], 1);
+   $ary2 = str_split($val, 4);
+   return $ary[0] . '-' . $ary1_sub[0] . '-' . $ary2[1];
+  }
+
+  if (strlen($val) <= 6 && strlen($val) > 3) {
+   $ary = str_split($val, 3);
+   return $ary[0] . '-' . $ary[1];
+  }
+  if (strlen($val) <= 3) {
+   return $val;
+  }
+ } else {
+  return '0';
+ }
+}
+
+global $array_a1;
+
+function generatePermutations($array, $length, $prefix = "")
+{
+ global $array_a1;
+
+ if ($length == 0) {
+  //echo $prefix . "\n";
+  $array_a1[] = $prefix;
+
+  return;
+ }
+ for ($i = 0; $i < count($array); $i++) {
+  $newArray = $array;
+  array_splice($newArray, $i, 1);
+  generatePermutations($newArray, $length - 1, $prefix . $array[$i]);
+ }
+}
+
+// Function to generate combinations with repetition
+
+function generateCombinationsWithRepetition($array, $length, $prefix = "")
+{
+ global $array_a1;
+ if ($length == 0) {
+  //echo $prefix . "\n";
+  $array_a1[] = $prefix;
+  return;
+ }
+ for ($i = 0; $i < count($array); $i++) {
+  generateCombinationsWithRepetition($array, $length - 1, $prefix . $array[$i]);
+ }
+}
+
+
+function getRightDigit($number) {
+ if ($number >= 10 && $number <= 99) { // Ensure it's a two-digit number
+  return $number % 10; // Modulo 10 gives the rightmost digit
+ } else {
+  return $number;
+ }
+}
+function sumDigits($number) {
+ // Convert the number to a string
+ $numberStr = strval($number);
+
+ // Initialize the sum variable
+ $sum = 0;
+
+ // Loop through each character in the string
+ for ($i = 0; $i < strlen($numberStr); $i++) {
+  // Add the integer value of the character to the sum
+  $sum += intval($numberStr[$i]);
+ }
+
+ return getRightDigit($sum);
+
+}
+
+function findRepeatedDigits($number) {
+ // Convert the number to a string
+ $numberStr = strval($number);
+
+ // Initialize an associative array to count digit frequencies
+ $digitCount = array();
+
+ // Loop through each digit in the string
+ for ($i = 0; $i < strlen($numberStr); $i++) {
+  $digit = $numberStr[$i];
+  if (isset($digitCount[$digit])) {
+   // If the digit is already in the array, increment its count
+   $digitCount[$digit]++;
+  } else {
+   // Otherwise, initialize its count to 1
+   $digitCount[$digit] = 1;
+  }
+ }
+
+ // Find digits that are repeated (count > 1)
+ $repeatedDigits = array();
+ foreach ($digitCount as $digit => $count) {
+  if ($count > 1) {
+   $repeatedDigits[] = $digit;
+  }
+ }
+
+ return $repeatedDigits;
+}
+
+//////////////////////////////////////Function Area//////////////////////////////////
+
+
+
 ?>

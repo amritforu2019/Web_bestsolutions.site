@@ -25,7 +25,7 @@ validate_admin();
      <tr>
       <td colspan="2" bgcolor="#FFFFFF">
        <form name="form1" method="post" action=" ">
-        <table border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#f0becf">
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#f0becf">
          <tr>
           <td   bgcolor="#FFFFFF">
            <div class="correct" align="center">
@@ -34,7 +34,7 @@ echo dec($_GET['answer']);
 } */ ?></h3>
            </div>
            <hr>
-           <table>
+           <table width="100%">
             <tr>
              <td width="90px" style="text-align: center;"><label
                style="font-size: 25px;"> Start : </label></td>
@@ -66,12 +66,12 @@ echo dec($_GET['answer']);
             </tr>
            </table>
            <hr>
-           <table
+           <table width="100%"
             style="     font-size:25px; "  >
             <tr>
-             <td class="td-top">#</td>
-             <td class="td-top">Number</td>
-             <td class="td-top" width="250px;">Result</td>
+            <!-- <td class="td-top">#</td>-->
+              <td class="td-top">Number</td>
+             <td class="td-top" width="200px;">Result</td>
              <td class="td-top">Generated Code &nbsp;&nbsp;
               <label  >Filter : </label>
               <input style="width: 85px;"  type="number" id="txt_filter">
@@ -83,64 +83,6 @@ echo dec($_GET['answer']);
             </tr>
             <?php
 
-            function splitter_data($val)
-            {
-             //echo $val.'<br>';
-             if (strlen($val) < 10) {
-
-              if (strlen($val) > 6) {
-               $ary = str_split($val, 3);
-               $ary1 = str_split($val, 3);
-               $ary1_sub = str_split($ary1[1], 1);
-               $ary2 = str_split($val, 4);
-               return $ary[0] . '-' . $ary1_sub[0] . '-' . $ary2[1];
-              }
-
-              if (strlen($val) <= 6 && strlen($val) > 3) {
-               $ary = str_split($val, 3);
-               return $ary[0] . '-' . $ary[1];
-              }
-              if (strlen($val) <= 3) {
-               return $val;
-              }
-             } else {
-              return '0';
-             }
-            }
-
-            global $array_a1;
-
-            function generatePermutations($array, $length, $prefix = "")
-            {
-             global $array_a1;
-
-             if ($length == 0) {
-              //echo $prefix . "\n";
-              $array_a1[] = $prefix;
-
-              return;
-             }
-             for ($i = 0; $i < count($array); $i++) {
-              $newArray = $array;
-              array_splice($newArray, $i, 1);
-              generatePermutations($newArray, $length - 1, $prefix . $array[$i]);
-             }
-            }
-
-            // Function to generate combinations with repetition
-
-            function generateCombinationsWithRepetition($array, $length, $prefix = "")
-            {
-             global $array_a1;
-             if ($length == 0) {
-              //echo $prefix . "\n";
-              $array_a1[] = $prefix;
-              return;
-             }
-             for ($i = 0; $i < count($array); $i++) {
-              generateCombinationsWithRepetition($array, $length - 1, $prefix . $array[$i]);
-             }
-            }
              global $code_ary;
             if (isset($_POST['finder'])) {
 
@@ -183,9 +125,9 @@ echo dec($_GET['answer']);
               // Function to generate permutations without repetition
               ?>
               <tr>
-               <td><?php echo $j; ?></td>
-               <td class="td-pad"><?php echo $i; ?></td>
-               <td class="td-pad-2"><?php echo splitter_data($i * 555); ?></td>
+               <!--<td><?php /*echo $j; */?></td>-->
+               <td class="td-pad" style="font-size: 35px;"><?php  echo $i;  ?></td>
+               <td class="td-pad-2" style="font-size: 35px;"><?php echo splitter_data($i * 555); ?></td>
                <td><?php
              /* $key = array_search($find, $array_a1);
               if ($key !== false) {
@@ -198,18 +140,88 @@ echo dec($_GET['answer']);
 
                 ?>
 
-               <div class="grid-container">
-                <?php
-                foreach ($array_unique as $array_unique_data) {
-                 ?>
-                <div class="grid-item">
-                 <div  class=" random-bg " >
-                 <?php echo $array_unique_data;?>
-                 </div>
-                </div>
+                <table width="100%">
+                 <tr>
+                  <td width="50%" style="border: 1px solid #9c0d0d;   font-size: 25px; text-align: center">
+                   Single
+                  </td>
+                  <td width="50%" style="border: 1px solid #9c0d0d;   font-size: 25px; text-align: center">
+                   Double
+                  </td>
+                 </tr>
                  <?php
-                }
-                ?>
+                 for($t=0;$t<=9;$t++)
+                 {
+                  $flag=0;
+                  $flag1=0;
+                  ?>
+                 <tr>
+                  <td style="border: 1px solid #9c0d0d;   font-size: 25px; text-align: center">
+
+                   <div class="grid-container">
+
+                    <?php
+                    foreach ($array_unique as $array_unique_data) {
+                    ?>
+                    <?php if(sumDigits($array_unique_data)==$t) {
+
+                     ////Repeted Logic /////
+                     $repeatedDigits = findRepeatedDigits($array_unique_data);
+                     if (count($repeatedDigits) <1) {
+
+
+                      if($flag==0) echo  $t;
+                      $flag=1;
+                     ?>
+
+                     <div class="grid-item">
+                      <div  class=" random-bg " >
+
+                       <?php echo $array_unique_data;?>
+                      </div>
+                     </div>
+
+                     <?php }  ?>
+                     <?php }  ?>
+                    <?php }  ?>
+                   </div>
+                   </td>
+                  <td style="border: 1px solid #9c0d0d;   font-size: 25px; text-align: center">
+                   <div class="grid-container">
+                    <?php
+                    foreach ($array_unique as $array_unique_data) {
+                     ?>
+                     <?php if(sumDigits($array_unique_data)==$t) {
+
+
+                      ////Repeted Logic /////
+                      $repeatedDigits = findRepeatedDigits($array_unique_data);
+                      if (count($repeatedDigits) > 0) {
+
+                      if($flag1==0) echo  $t;
+                      $flag1=1;
+                      ?>
+                      <div class="grid-item">
+                       <div  class=" random-bg " >
+
+                        <?php echo $array_unique_data;?>
+                       </div>
+                      </div>
+
+                      <?php }  ?>
+
+                     <?php }  ?>
+                    <?php }  ?>
+                   </div>
+                  </td>
+                   </tr>
+
+
+                   <?php } ?>
+                </table>
+
+
+
 
                </div> </td>
               </tr>

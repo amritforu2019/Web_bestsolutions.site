@@ -329,8 +329,8 @@ input[type=button]:hover {
 /* Apply animation to element */
 .random-bg {
 
-    width: 80px;
-    height: 50px;
+
+
     color: white;
     display: flex;
     align-items: center;
@@ -339,18 +339,20 @@ input[type=button]:hover {
     text-align: center;
     border-color: #ff02ff;
     border: 1px solid;
-    padding: 5px;
+    padding: 2px;
 
-    animation: randomBackground 100s infinite;
+    background-color: rgba(0, 166, 0, 0.72);
+
+    /*animation: randomBackground 100s infinite;*/
 }
 
 .highlight {
     background-color: yellow;
     border-color: #ff0;
     font-weight: bold;
-    font-size: 30px;
-    padding: 5px;
-    height: 50px;
+    font-size: 28px;
+    padding: 2px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -361,21 +363,29 @@ input[type=button]:hover {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr); /* 3 equal columns */
-    gap: 10px; /* Space between cells */
+    gap: 5px; /* Space between cells */
+}
+.grid-container-code {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr); /* 3 equal columns */
+    gap: 5px; /* Space between cells */
 }
 
 .grid-item {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 2px;
     text-align: center;
     box-sizing: border-box;
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .grid-item:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #ededed;
+
+
 }
 
 .grid-item:hover {
-    background-color: #d0d0d0;
+    background-color: #ff1034;
+
 }

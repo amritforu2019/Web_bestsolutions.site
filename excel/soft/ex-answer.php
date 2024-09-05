@@ -81,18 +81,30 @@ echo dec($_GET['answer']);
 
 
                                             <hr>
-                                         <div class="grid-container">
+
+<table>
 
 
 
 
+
+   <?php
+   for($i=0;$i<=9;$i++)
+   {
+   ?> <tr>
+                                     <td style="border: 2px dashed #9c0d0d; padding: 5px; font-size: 30px; text-align:
+                                     center">
+                                      For <?=$i;?>
+   <div class="grid-container-code">
 
     <?php
-    $coun=0;
+
     $qry=mysqli_query($DB_LINK,"select * from calc_ans order by code asc");
     while ($row = mysqli_fetch_array($qry)) {
-    $coun++;
+
     ?>
+
+     <?php if(sumDigits($row['code'])==$i) { ?>
 
      <div class="grid-item">
       <div  class=" random-bg " >
@@ -100,9 +112,16 @@ echo dec($_GET['answer']);
       </div>
      </div>
 
+      <?php }?>
+    <?php }?>
+    <div>
+                                     </td>
+   </tr>
+ <?php }?>
 
-                    <?php } ?>
-                                         </div>
+
+</table>
+
 
                                         </td>
                                     </tr>
