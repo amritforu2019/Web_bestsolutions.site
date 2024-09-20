@@ -9,5 +9,6 @@
     <li><a target="_blank" href="ex-finder-backup.php"><i class="fa-solid fa-angles-right fa-fade"></i>&nbsp;Find Answer</a></li>
     <li><a target="_blank" href="ex-finder.php"><i class="fa-solid fa-angles-right fa-fade"></i> Find Answer (OLD)</a></li>
     <li><a target="_blank" href="ex-answer.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Codes</a></li>
+    <li><a target="_blank" href="ex-answer-gold.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Gold</a></li>
     <?php  if($_SESSION['sess_admin_id']=='amritforu')  {  ?><?php   } ?>
 </ul>

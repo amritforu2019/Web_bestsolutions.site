@@ -148,6 +148,9 @@ echo dec($_GET['answer']);
                   <td width="50%" style="border: 1px solid #9c0d0d;   font-size: 25px; text-align: center">
                    Double
                   </td>
+                  <td width="50%" style="border: 1px solid #9c0d0d;   font-size: 25px; text-align: center">
+                   Gold
+                  </td>
                  </tr>
                  <?php
                  for($t=0;$t<=9;$t++)

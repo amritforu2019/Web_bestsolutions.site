@@ -345,9 +345,41 @@ input[type=button]:hover {
 
     /*animation: randomBackground 100s infinite;*/
 }
+.random-bg-gold {
+
+
+
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    text-align: center;
+    border-color: #ff02ff;
+    border: 1px solid;
+    padding: 2px;
+
+    background-color: rgb(237, 237, 23);
+
+    /*animation: randomBackground 100s infinite;*/
+}
 
 .highlight {
     background-color: yellow;
+    border-color: #ff0;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+
+}
+
+.highlight-gold {
+    background-color: #ff1034;
     border-color: #ff0;
     font-weight: bold;
     font-size: 28px;
