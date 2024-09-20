@@ -345,6 +345,22 @@ input[type=button]:hover {
 
     /*animation: randomBackground 100s infinite;*/
 }
+
+
+.highlight {
+    background-color: yellow;
+    border-color: #ff0;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+
+}
+
 .random-bg-gold {
 
 
@@ -362,20 +378,6 @@ input[type=button]:hover {
     background-color: rgb(237, 237, 23);
 
     /*animation: randomBackground 100s infinite;*/
-}
-
-.highlight {
-    background-color: yellow;
-    border-color: #ff0;
-    font-weight: bold;
-    font-size: 28px;
-    padding: 2px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: help;
-
 }
 
 .highlight-gold {
@@ -403,6 +405,12 @@ input[type=button]:hover {
     gap: 5px; /* Space between cells */
 }
 
+.grid-container-collection {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 3 equal columns */
+    gap: 5px; /* Space between cells */
+}
+
 .grid-item {
     border: 1px solid #ccc;
     padding: 2px;
@@ -420,4 +428,79 @@ input[type=button]:hover {
 .grid-item:hover {
     background-color: #ff1034;
 
+}
+
+
+.grid-container-small {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); /* 3 equal columns */
+    gap: 5px; /* Space between cells */
+}
+
+
+.grid-item-small {
+    /*//border: 1px solid #ccc;*/
+    padding: 2px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.grid-item-small:nth-child(even) {
+ /*  // background-color: #868686;
+    //border: 1px solid #ccc;*/
+
+
+}
+
+.grid-item-small:hover {
+    background-color: #ff1034;
+
+}
+
+.highlight-small {
+
+
+    font-weight: bold;
+    font-size: 25px;
+    padding: 2px;
+    border-color: #ff02ff;
+    border: 1px solid;
+    padding: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;background-color: rgb(255, 9, 9);
+
+
+    animation: blinkColors 2s infinite;
+}
+
+.bg-small {
+
+
+
+    color: black;
+
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    text-align: center;
+   /* display: none;*/
+
+
+    padding: 2px;
+
+    background-color: rgb(237, 237, 23);
+
+    /*animation: randomBackground 100s infinite;*/
+}
+
+@keyframes blinkColors {
+    0% { color: #000000; }
+    25% { color: yellow; }
+    50% { color: green; }
+    75% { color: blue; }
+    100% { color: #ff9100; } /* Loop back to the first color */
 }

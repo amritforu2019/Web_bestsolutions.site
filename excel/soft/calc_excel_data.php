@@ -56,10 +56,10 @@ foreach($compile_qry as $compile_row)
 
 
 /////////For New Sequesnce
-/*	$compile_qry= mysqli_query($DB_LINK, "select * from tbl_new_sequence where compile_answer='E' order by id asc limit 0,500") or die(mysqli_error());
+ 	$compile_qry= mysqli_query($DB_LINK, "select * from tbl_new_sequence where compile_answer='E' order by id asc limit 0,50") or die(mysqli_error());
 	foreach($compile_qry as $compile_row)
 	{
-		$number=$compile_row['number'];
+		$number=$compile_row['question'];
 		$answer=$compile_row['answer'];
 		$split_answer=splitter_data($answer);
 		$answer_array=explode("-",$split_answer);
@@ -68,16 +68,16 @@ foreach($compile_qry as $compile_row)
 		$answer_p3=$answer_array[2];
 		$answer_p4=$answer_array[3];
 		
-		$update_qry=mysqli_query($DB_LINK,"Update  calc_data set
+		$update_qry=mysqli_query($DB_LINK,"Update  tbl_new_sequence set
                       compile_answer='$split_answer' ,
                       answer_p1='$answer_p1' ,
                       answer_p2='$answer_p2' ,
                       answer_p3='$answer_p3' ,
                       answer_p4='$answer_p4'
-                  where number='$number' ");
+                  where question='$number' ");
 		echo 'Compile Number: '.$split_answer.'<br>';
 		
-	}*/
+	}
 
 
 

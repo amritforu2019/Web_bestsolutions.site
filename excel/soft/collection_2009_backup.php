@@ -58,45 +58,22 @@ validate_admin();
  ($_GET['answer'])) {
 echo dec($_GET['answer']);
 } */ ?></h3></div>
-                                       <table width="100%">
-            <tr>
-             <td width="90px" style="text-align: center;"><label
-		             style="font-size: 25px;"> Start : </label></td>
-             <td width="90px"><input style="width: 85px;" name="start"
-                                     type="number" value="<?php if (isset($_POST['finder'])) {
-		             echo $_POST['start'];
-	             }
-		             
-		             if (isset($_GET['start'])) {
-			             echo $_GET['start'];
-		             }
-	             ?>" required></td>
-             <td width="90px" style="text-align: center;"><label
-		             style="font-size: 25px;"> End : </label></td>
-             <td width="90px"><input style="width: 85px;" name="end"
-                                     type="number" value="<?php if (isset($_POST['finder'])) {
-		             echo $_POST['end'];
-	             }
-	             ?>" required></td>
-	            <!--<td width="90px" style="text-align: center;"><label
-															style="font-size: 25px;">Find : </label></td>-->
-	            <!-- <td width="90px"><input style="width: 85px;" name="find"
-                                     type="number" value="<?php /*if (isset($_POST['finder'])) {
-               echo $_POST['find'];
-              }
-              */?>" required></td>-->
-             <td width="90px"><input type="submit" name="finder"
-                                     value="Find answer"></td>
-            </tr>
-           </table>
-           <hr>
+                                        <!--    <hr>
+                                            <table>
+                                                <tr>
+                                                     <td   style="text-align: center;"><label  style="font-size: 25px;">Enter Answer : </label></td>
+                                                    <td width="190px"><input style="width: 170px;" name="ans" type="number" value="<?php /*if (isset($_POST['finder'])) echo  $_POST['ans']; */?>" required></td>
+
+                                                    <td width="190px"><input type="submit" name="finder" value="Save answer"></td>
+                                                </tr>
+                                            </table>-->
                                          <table style="font-size: 25px;">
                                           <tr>
                                            <td><label  >Filter : </label></td>
                                            <td><input style="width: 85px;"  type="number" id="txt_filter"> </td>
-                                           <td><input type="button" name="finder" onclick="highlightDivByText(txt_filter.value)" value="Filter">  </td>
+                                           <td><input type="button" name="finder" onclick="highlightDivByText(txt_filter.value)" value="Click">  </td>
                                            <td><input type="button" name="reset" onclick="resetStyle()"
-                                                   value="Reset"></td>
+                                                   value="reset filter"></td>
                                           </tr>
                                          </table>
 
@@ -119,23 +96,15 @@ echo dec($_GET['answer']);
 		    </tr>
 		    
     <?php
-	    if (isset($_POST['finder'])) {
-		    $start = $_POST['start'];
-		    $end = $_POST['end'];
-	    for ($i = $start; $i <= $end; $i++) {
-		    $j++;
-		    
-		    $number = $i * 555;
-		    // Convert the string to an array of digits
-		   
-		    $split_answer=splitter_data($number);
+    $qry=mysqli_query($DB_LINK,"select * from tbl_new_sequence order by question asc");
+    while ($row = mysqli_fetch_array($qry)) {
     ?>
 	    <tr>
 		    <td>
 			     <div class="grid-container-collection">
      <div class="grid-item">
       <div  class=" random-bg-gold " >
-       <?php echo $i; ?>
+       <?php echo $row['question']; ?>
       </div>
      </div>
 				     <div>
@@ -143,14 +112,14 @@ echo dec($_GET['answer']);
 		    <td>
 			     <div class="grid-container-collection">
      <div class="grid-item">
-      <div  class=" random-bg-gold " ><?php echo $split_answer; ?></div>
+      <div  class=" random-bg-gold " ><?php echo $row['compile_answer']; ?></div>
      </div>
 			     </div>
 			    </td>
 		    <td>
 			    <?php
 				    $array_a1 = array();
-				    $digits = str_split($number);
+				    $digits = str_split($row['answer']);
 				    // Number of available digits
 				    $n = count($digits);
 				    // Number of digits to choose (3-digit number)
@@ -178,7 +147,7 @@ echo dec($_GET['answer']);
 		    </td>
 	    </tr>
 
-    <?php } }?>
+    <?php }?>
    	    </table>
 		   
                                      </td>
@@ -237,6 +206,8 @@ echo dec($_GET['answer']);
    div.classList.add('bg-small');
    div.style.display = "none";
  
+
+
   });
  }
 </script>
