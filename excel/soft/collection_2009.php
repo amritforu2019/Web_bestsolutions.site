@@ -178,7 +178,83 @@ echo dec($_GET['answer']);
 		    </td>
 	    </tr>
 
-    <?php } }?>
+    <?php }
+					?>
+					<tr>
+			    <td colspan="3"><hr></td>
+		    </tr>
+<?php
+	$incre=1000;
+	for ($hh = 1; $hh <= 9; $hh++) {
+		    $start = $_POST['start']+$incre;
+		    $end = $_POST['end']+$incre;
+		    $incre=$incre+1000;
+		    for ($i = $start; $i <= $end; $i++) {
+			    $j++;
+			    
+			    $number = $i * 555;
+			    // Convert the string to an array of digits
+			    
+			    $split_answer=splitter_data($number);
+			    ?>
+			    <tr>
+		    <td>
+			     <div class="grid-container-collection">
+     <div class="grid-item">
+      <div  class=" random-bg-gold " >
+       <?php echo $i; ?>
+      </div>
+     </div>
+				     <div>
+			    </td>
+		    <td>
+			     <div class="grid-container-collection">
+     <div class="grid-item">
+      <div  class=" random-bg-gold " ><?php echo $split_answer; ?></div>
+     </div>
+			     </div>
+			    </td>
+		    <td>
+			    <?php
+				    $array_a1 = array();
+				    $digits = str_split($number);
+				    // Number of available digits
+				    $n = count($digits);
+				    // Number of digits to choose (3-digit number)
+				    $k = 3;
+				    //echo "All possible 3-digit numbers without repetition:\n";
+				    generatePermutations($digits, $k);
+				    
+				    //print_r($array_a1);
+				    
+				    //$commonElements = array_intersect($array_a1, $code_ary);
+				    $array_unique=array_values(array_unique($array_a1));
+				    ///print_r($array_unique);
+				    ///
+				    /// ?>
+			    <div class="grid-container-small">
+        <?php
+	        foreach ($array_unique as $array_unique_data) {
+		        ?>
+		        <div class="grid-item-small">
+      <div  class=" bg-small " ><?php echo $array_unique_data; ?></div>
+     </div>
+		        <?php
+	        }
+        ?> </div>
+		    </td>
+	    </tr>
+		    
+		    <?php }
+						?>
+			<tr>
+			    <td colspan="3"><hr></td>
+		    </tr>
+		<?php
+	}
+		    
+		    
+	    }?>
    	    </table>
 		   
                                      </td>
