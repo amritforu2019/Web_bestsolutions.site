@@ -113,14 +113,11 @@ echo dec($_GET['answer']);
 	  
 	    <table width="100%">
 		    <tr>
-			    <th>#</th>
+
 			    <th>Question</th>
 			    <th>Answer</th>
 			    <th>Results</th>
-			    <th>#</th>
-			    <th>Question</th>
-			    <th>Answer</th>
-			    <th>Results</th>
+
 		    </tr>
 		    
     <?php
@@ -155,6 +152,10 @@ echo dec($_GET['answer']);
 		     //$array_unique_5=array_merge($array_unique, $array_unique_4);
 		     //print_r(array_values(array_unique($array_a1)));
 		     		     $array_unique_4=array_values(array_unique($array_a1));
+   /* foreach ($array_unique_4 as $array_unique_data_4)
+    {
+     //echo ' - '.$array_unique_data_4;
+    }*/
 							
 							?>
 		     <tr>
@@ -180,7 +181,7 @@ echo dec($_GET['answer']);
 		    $split_answer=splitter_data($number);
      ?>
 	    <tr>
-		    <td><?php echo $q;?></td>
+		  <!--  <td><?php /*echo $q;*/?></td>-->
 		    <td>
 			     <div class="grid-container-collection">
      <div class="grid-item">
@@ -199,32 +200,32 @@ echo dec($_GET['answer']);
 			    </td>
 		    <td>
 			    <?php
-/*				    $array_a1 = array();
+				    $array_a2 = array();
 				    $digits = str_split($number);
 				    // Number of available digits
 				    $n = count($digits);
 				    // Number of digits to choose (3-digit number)
 				    $k = 3;
 				    //echo "All possible 3-digit numbers without repetition:\n";
-				    generatePermutations($digits, $k);
-				    
+				    generatePermutations2($digits, $k);
+
 				   //print_r($array_a1);
 				    
 				    //$commonElements = array_intersect($array_a1, $code_ary);
-				    $array_unique=array_values(array_unique($array_a1));
-				    ///print_r($array_unique);
+				    $array_unique=array_values(array_unique($array_a2));
+				   /* ///print_r($array_unique);
 				    ///
 				    /// */?>
-			    <!--<div class="grid-container-small">
+			     <div class="grid-container-small">
         <?php
-/*				    /*foreach ($array_unique as $array_unique_data) {
-								*/ ?>
+ 			    foreach ($array_unique as $array_unique_data) {
+							  ?>
 					    <div class="grid-item-small">
-      <div  class=" bg-small " ><?php /*/*echo $array_unique_data;   ?></div>
+      <div  class=" bg-small " ><?php  echo $array_unique_data;   ?></div>
      </div>
-					    --><?php
-/* *				    }
-			    */?> </div>-->
+					     <?php
+   }
+			     ?> </div>
 		    </td>
 	    </tr>
 

@@ -1252,6 +1252,27 @@ function generatePermutations($array, $length, $prefix = "")
  }
 }
 
+
+global $array_a2;
+
+function generatePermutations2($array, $length, $prefix = "")
+{
+ global $array_a2;
+
+ if ($length == 0) {
+  //echo $prefix . "\n";
+  $array_a2[] = $prefix;
+
+  return;
+ }
+ for ($i = 0; $i < count($array); $i++) {
+  $newArray = $array;
+  array_splice($newArray, $i, 1);
+  generatePermutations2($newArray, $length - 1, $prefix . $array[$i]);
+ }
+}
+
+
 // Function to generate combinations with repetition
 
 function generateCombinationsWithRepetition($array, $length, $prefix = "")
