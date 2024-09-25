@@ -10,6 +10,7 @@
     <li><a target="_blank" href="ex-finder.php"><i class="fa-solid fa-angles-right fa-fade"></i> Find Answer (OLD)</a></li>
     <li><a target="_blank" href="ex-answer.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Codes</a></li>
     <li><a target="_blank" href="ex-answer-gold.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Gold</a></li>
+    <li><a target="_blank" href="ex-answer-red.php"><i class="fa-solid fa-angles-right fa-fade"></i>All Red</a></li>
     <li><a target="_blank" href="collection_2009.php"><i class="fa-solid fa-angles-right fa-fade"></i>Collection(20-09-24)</a></li>
     <li><a target="_blank" href="collection_red_2309.php"><i class="fa-solid fa-angles-right fa-fade"></i>Collection Red(23-09-24)</a></li>
     <?php  if($_SESSION['sess_admin_id']=='amritforu')  {  ?><?php   } ?>

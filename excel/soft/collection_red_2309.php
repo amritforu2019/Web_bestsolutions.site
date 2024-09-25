@@ -200,32 +200,53 @@ echo dec($_GET['answer']);
 			    </td>
 		    <td>
 			    <?php
-				    $array_a2 = array();
-				    $digits = str_split($number);
+				   // $array_a2 = array();
+				    //$digits = str_split($number);
 				    // Number of available digits
-				    $n = count($digits);
+				    //$n = count($digits);
 				    // Number of digits to choose (3-digit number)
-				    $k = 3;
+				    //$k = 3;
 				    //echo "All possible 3-digit numbers without repetition:\n";
-				    generatePermutations2($digits, $k);
+				   // generatePermutations2($digits, $k);
 
 				   //print_r($array_a1);
 				    
 				    //$commonElements = array_intersect($array_a1, $code_ary);
-				    $array_unique=array_values(array_unique($array_a2));
+				   // $array_unique=array_values(array_unique($array_a2));
 				   /* ///print_r($array_unique);
 				    ///
 				    /// */?>
-			     <div class="grid-container-small">
+			     <!--<div class="grid-container-small">
         <?php
- 			    foreach ($array_unique as $array_unique_data) {
-							  ?>
+/* 			    foreach ($array_unique as $array_unique_data) {
+							  */?>
 					    <div class="grid-item-small">
-      <div  class=" bg-small " ><?php  echo $array_unique_data;   ?></div>
+      <div  class=" bg-small " ><?php /* echo $array_unique_data;   */?></div>
      </div>
 					     <?php
-   }
-			     ?> </div>
+/*   }
+			     */?> </div>-->
+       <div class="grid-item-small">
+        <div  class=" random-bg-gold  " >
+       <?php
+       $firstOne=explode('-',$split_answer);
+      // echo $firstOne[0];
+
+       $digits = str_split($firstOne[0]);
+
+       // Sum the digits
+        $sum = array_sum($digits);
+
+       if($sum>=10)
+       {
+        $digits2 = str_split($sum);
+        echo $digits2['0'];
+       }
+       else echo $sum;
+       ?>
+        </div>
+
+        </div>
 		    </td>
 	    </tr>
 
