@@ -287,12 +287,8 @@ echo dec($_GET['answer']);
 			                                        //print_r(array_values(array_unique($array_a1)));
 			                                        $array_unique_4 = array_values(array_unique($array_a1));
 			                                        ?>
-
-			                                        
-
-			                                        <table width="100%">
+                                           <table width="100%">
 																																											<tr>
-																																												
 																																												<td style="border: 2px dashed #9c0d0d; padding: 5px; font-size: 30px; text-align:
 																																												center">
 																																												Red
@@ -300,8 +296,8 @@ echo dec($_GET['answer']);
 <label id="checkboxLabelRed" for="visibilityRed">Show  </label>
 																																													<div id="myDivRed" style="display: none;">
 																																													
-																																													<table width="100%">
-																																												<tr>
+																																													<table width="100%" id="myTableRed">
+																																												<tr id="not-hide-red">
 																																												
 																																												<th>Question</th>
 																																												<th>Answer</th>
@@ -309,10 +305,35 @@ echo dec($_GET['answer']);
 																																												
 																																												</tr>
 																																												
-																																												<tr>
+																																												<tr id="not-hide-red-1">
 																																												<td>Question : <?= $start; ?></td>
 																																												<td>Answer : <?= $split_answer_master; ?></td>
 																																												</tr>
+																																														
+																																												<tr id="not-hide-red-2">
+																																															<td colspan="3">
+																																															      <table style="font-size: 25px;"
+																																															             width="100%">
+                                          <tr>
+                                           <td><label>Filter : </label></td>
+                                           <td><input style="width: 85px;"
+                                                      type="number"
+                                                      id="txt_filter_red"> </td>
+                                           <td><input type="button"
+                                                      name="finder_green"
+                                                      onclick="highlight_red(txt_filter_red.value)"
+                                                      value="Filter">  </td>
+                                           <td><input type="button"
+                                                      name="reset_red"
+                                                      onclick="resetDivRed()"
+                                                      value="Reset"></td>
+	                                          
+                                          </tr>
+                                         </table>
+																																													
+																																															</td>
+																																														</tr>
+																																														
 																																														<?php
 																																															/////////////////////////////////////////////
 																																															$q = 0;
@@ -329,7 +350,7 @@ echo dec($_GET['answer']);
 																																																	
 																																																	$split_answer = splitter_data($number);
 																																																	?>
-																																																	<tr>
+																																																	<tr id="td-red-<?=$data['question'];?>">
 																																												<!--  <td><?php /*echo $q;*/
 																																												?></td>-->
 																																												<td>
@@ -378,7 +399,7 @@ echo dec($_GET['answer']);
 																																														/*   }
 																																														*/
 																																													?> </div>-->
-																																												<div class="grid-item-small">
+																																												<div class="grid-item">
 																																												<div class="random-bg-red"><?php
 																																													$firstOne = explode('-', $split_answer);
 																																													// echo $firstOne[0];
@@ -556,18 +577,40 @@ echo dec($_GET['answer']);
 																																												</table>
 																																													</div>
 																																												</td>
-																																												<td style="border: 2px dashed #ff9100; padding: 5px; font-size: 30px; text-align:
-																																												center">
+																																												<td style="border: 2px dashed #ff9100; padding: 5px; font-size: 30px; text-align: center">
 																																													Gold
 																																													<input type="checkbox" id="visibilityGold" onclick="toggleDiv('visibilityGold', 'myDivGold', 'checkboxLabelGold')" />
 <label id="checkboxLabelGold" for="visibilityGold">Show  </label>
 																																													<div id="myDivGold" style="display: none;">
-																																													<table width="100%">
+																																													<table width="100%" id="myTableGold">
 																																										 
 																																												
-																																												<tr>
+																																												<tr id="not-hide-gold">
 																																												<td>Question : <?= $start; ?> Answer : <?= $split_answer_master; ?></td>
 																																												</tr>
+																																														<tr id="not-hide-gold-1">
+																																															<td colspan="3">
+																																															      <table style="font-size: 25px;"
+																																															             width="100%">
+                                          <tr>
+                                           <td><label>Filter : </label></td>
+                                           <td><input style="width: 85px;"
+                                                      type="number"
+                                                      id="txt_filter_gold"> </td>
+                                           <td><input type="button"
+                                                      name="finder_gold"
+                                                      onclick="highlight_gold(txt_filter_gold.value)"
+                                                      value="Filter">  </td>
+                                           <td><input type="button"
+                                                      name="reset_red"
+                                                      onclick="resetDivGold()"
+                                                      value="Reset"></td>
+	                                          
+                                          </tr>
+                                         </table>
+																																													
+																																															</td>
+																																														</tr>
 																																														<?php
 																																															/////////////////////////////////////////////
 																																															$q = 0;
@@ -584,7 +627,7 @@ echo dec($_GET['answer']);
 																																																	
 																																																	$split_answer = splitter_data($number);
 																																																	?>
-																																																	<tr>
+																																																	<tr id="td-gold-<?=$data['g_no'];?>">
 																																												<!--  <td><?php /*echo $q;*/
 																																												?></td>-->
 																																												<td>
@@ -611,6 +654,7 @@ echo dec($_GET['answer']);
 																																											</tr>
 																																										</table>
 
+			                                        <!--All Question and combination-->
 			                                        <table >
 				                                        	<tr>
 																																												<td>Question : <?= $start; ?></td>
@@ -650,45 +694,119 @@ echo dec($_GET['answer']);
     </tr>
 </table>
 			<script>
-																																																	function highlight_green(val)
-                                                 {
-                                                  var table = document.getElementById("myTable");
+			function highlight_green(val)
+   {
+    var table = document.getElementById("myTable");
 
 // Identify which row we would like to show
-                                                  var idToShow = "td-"+val;
+    var idToShow = "td-"+val;
 
 // Iterate through each row in the table
-                                                  for (var i = 0, row; row = table.rows[i]; i++) {
-                                                   // Compare the id of the current row with the id we want to show
-                                                   if (row.id == idToShow) {
-                                                    // If the ids match, make sure the row is visible
-                                                   
-                                                    row.style.display = "";
-                                                   
-                                                   
-                                                   } else {
-                                                    // If the ids do not match, hide the row
-                                                    if(row.id!='not-hide' && row.id!='not-hide-1' && row.id!='not-hide-2') {
-                                                     row.style.display = "none";
-                                                    }
-                                                   }
-                                                  }
-                                                 }
-                                                 
-                                                 function resetDivGreen()
-                                                 {
-                                                  var table = document.getElementById("myTable");
-                                                  
-                                                  for (var i = 0, row; row = table.rows[i]; i++) {
-                                                   // Compare the id of the current row with the id we want to show
-                                                   
-                                                   // If the ids match, make sure the row is visible
-                                                   row.style.display = "";
-                                                   
-                                                   
-                                                  }
-                                                 }
-																																																</script>
+    for (var i = 0, row; row = table.rows[i]; i++) {
+     // Compare the id of the current row with the id we want to show
+     if (row.id == idToShow) {
+      // If the ids match, make sure the row is visible
+     
+      row.style.display = "";
+     
+     
+     } else {
+      // If the ids do not match, hide the row
+      if(row.id!='not-hide' && row.id!='not-hide-1' && row.id!='not-hide-2') {
+       row.style.display = "none";
+      }
+     }
+    }
+   }
+   
+   function resetDivGreen()
+   {
+    var table = document.getElementById("myTable");
+    
+    for (var i = 0, row; row = table.rows[i]; i++) {
+     // Compare the id of the current row with the id we want to show
+     
+     // If the ids match, make sure the row is visible
+     row.style.display = "";
+     
+     
+    }
+   }
+   
+   function highlight_red(val)
+   {
+    var table = document.getElementById("myTableRed");
+
+// Identify which row we would like to show
+    var idToShow = "td-red-"+val;
+
+// Iterate through each row in the table
+    for (var i = 0, row; row = table.rows[i]; i++) {
+     // Compare the id of the current row with the id we want to show
+     if (row.id == idToShow) {
+      // If the ids match, make sure the row is visible
+      
+      row.style.display = "";
+      
+      
+     } else {
+      // If the ids do not match, hide the row
+      if(row.id!='not-hide-red' && row.id!='not-hide-red-1' && row.id!='not-hide-red-2') {
+       row.style.display = "none";
+      }
+     }
+    }
+   }
+   
+   function resetDivRed()
+   {
+    var table = document.getElementById("myTableRed");
+    
+    for (var i = 0, row; row = table.rows[i]; i++) {
+     // Compare the id of the current row with the id we want to show
+     
+     // If the ids match, make sure the row is visible
+     row.style.display = "";
+     
+     
+    }
+   }
+   
+   function highlight_gold(val)
+   {
+    var table = document.getElementById("myTableGold");
+
+// Identify which row we would like to show
+    var idToShow = "td-gold-"+val;
+
+// Iterate through each row in the table
+    for (var i = 0, row; row = table.rows[i]; i++) {
+     // Compare the id of the current row with the id we want to show
+     if (row.id == idToShow) {
+      // If the ids match, make sure the row is visible
+      
+      row.style.display = "";
+      
+      
+     } else {
+      // If the ids do not match, hide the row
+      if(row.id!='not-hide-gold' && row.id!='not-hide-gold-1'  ) {
+       row.style.display = "none";
+      }
+     }
+    }
+   }
+   
+   function resetDivGold()
+   {
+    var table = document.getElementById("myTableGold");
+     for (var i = 0, row; row = table.rows[i]; i++) {
+     // Compare the id of the current row with the id we want to show
+     // If the ids match, make sure the row is visible
+     row.style.display = "";
+    }
+   }
+		</script>
 </body>
 <!--</html>-->
 <!--	<td style="border: 2px dashed #000000; padding: 5px; font-size: 30px; text-align:-->
